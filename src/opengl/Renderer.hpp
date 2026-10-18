@@ -12,6 +12,6 @@ namespace assignment::opengl
     public:
         void draw(const Renderable &renderable);
 
-        void setupBuffers(const std::vector<float>& vertices, const object::VertexArray& vertexArray, const object::Buffer& vertexBuffer) const;
+        void setupBuffers(const std::vector<float>& vertexData, const object::VertexArray& vertexArray, const object::Buffer& vertexBuffer) const;
     };
 }

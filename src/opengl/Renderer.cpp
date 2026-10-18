@@ -17,15 +17,15 @@ namespace assignment::opengl
         glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(renderable.getVertexData().size() / 3));
     }
 
-    void Renderer::setupBuffers(const std::vector<GLfloat>& vertices, const object::VertexArray& vertexArray, const object::Buffer& vertexBuffer) const
+    void Renderer::setupBuffers(const std::vector<GLfloat>& vertexData, const object::VertexArray& vertexArray, const object::Buffer& vertexBuffer) const
     {
         glBindVertexArray(vertexArray.getId());
         glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer.getId());
 
         glBufferData(
             GL_ARRAY_BUFFER,
-            vertices.size() * sizeof(float),
-            vertices.data(),
+            vertexData.size() * sizeof(float),
+            vertexData.data(),
             GL_STATIC_DRAW
         );
 
