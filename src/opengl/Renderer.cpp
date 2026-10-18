@@ -8,13 +8,13 @@ namespace assignment::opengl
 {
     void Renderer::draw(const Renderable &renderable)
     {
-        setupBuffers(renderable.getVertices(), renderable.getVertexArray(), renderable.getVertexBuffer());
+        setupBuffers(renderable.getVertexData(), renderable.getVertexArray(), renderable.getVertexBuffer());
 
         glUseProgram(renderable.getShaderProgram().getId());
 
         glBindVertexArray(renderable.getVertexArray().getId());
 
-        glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(renderable.getVertexCount()));
+        glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(renderable.getVertexData().size() / 3));
     }
 
     void Renderer::setupBuffers(const std::vector<GLfloat>& vertices, const object::VertexArray& vertexArray, const object::Buffer& vertexBuffer) const

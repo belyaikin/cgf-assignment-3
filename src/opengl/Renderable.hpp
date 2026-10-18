@@ -16,7 +16,7 @@ namespace assignment::opengl
     {
         const object::shader::ShaderProgram shaderProgram;
 
-        std::vector<GLfloat> vertices;
+        std::vector<GLfloat> vertexData;
 
         const object::Buffer vertexBuffer;
         const object::VertexArray vertexArray;
@@ -25,17 +25,16 @@ namespace assignment::opengl
         static GLuint generateVertexBuffer();
 
     public:
-        Renderable(const std::vector<GLfloat> &vertices, const object::shader::ShaderProgram shaderProgram) :
+        Renderable(const std::vector<GLfloat> &vertexData, const object::shader::ShaderProgram shaderProgram) :
             shaderProgram(shaderProgram),
-            vertices(vertices),
+            vertexData(vertexData),
             vertexBuffer(generateVertexBuffer()),
             vertexArray(generateVertexArray())
         {}
 
         [[nodiscard]] const object::shader::ShaderProgram &getShaderProgram() const { return shaderProgram; }
 
-        [[nodiscard]] std::vector<float> getVertices() const { return vertices; }
-        [[nodiscard]] int getVertexCount() const { return vertices.size() / 3; }
+        [[nodiscard]] std::vector<float> getVertexData() const { return vertexData; }
 
         [[nodiscard]] const object::VertexArray &getVertexArray() const { return vertexArray; }
         [[nodiscard]] const object::Buffer &getVertexBuffer() const { return vertexBuffer; }
