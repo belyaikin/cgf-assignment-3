@@ -16,7 +16,7 @@ namespace assignment::opengl
     {
         const object::shader::ShaderProgram shaderProgram;
 
-        std::vector<float> vertices;
+        std::vector<GLfloat> vertices;
 
         const object::Buffer vertexBuffer;
         const object::VertexArray vertexArray;
@@ -25,7 +25,7 @@ namespace assignment::opengl
         static GLuint generateVertexBuffer();
 
     public:
-        Renderable(const std::vector<float> &vertices, const object::shader::ShaderProgram shaderProgram) :
+        Renderable(const std::vector<GLfloat> &vertices, const object::shader::ShaderProgram shaderProgram) :
             shaderProgram(shaderProgram),
             vertices(vertices),
             vertexBuffer(generateVertexBuffer()),

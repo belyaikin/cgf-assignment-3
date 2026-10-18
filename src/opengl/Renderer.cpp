@@ -17,7 +17,7 @@ namespace assignment::opengl
         glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(renderable.getVertexCount()));
     }
 
-    void Renderer::setupBuffers(const std::vector<float>& vertices, const object::VertexArray& vertexArray, const object::Buffer& vertexBuffer) const
+    void Renderer::setupBuffers(const std::vector<GLfloat>& vertices, const object::VertexArray& vertexArray, const object::Buffer& vertexBuffer) const
     {
         glBindVertexArray(vertexArray.getId());
         glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer.getId());
