@@ -3,7 +3,6 @@
 #include "Application.hpp"
 #include "opengl/Renderer.hpp"
 #include "opengl/object/shader/ShaderFactory.hpp"
-#include "opengl/object/shader/Shaders.hpp"
 
 #define WINDOW_WIDTH 600
 #define WINDOW_HEIGHT 600
