@@ -30,7 +30,10 @@ namespace assignment
     public:
         explicit Application(const WindowProperties &windowProperties);
 
-        void setScene(Scene *scene) {this->scene = scene;}
+        void setScene(Scene *scene) {
+            if (scene == nullptr) return;
+            this->scene = scene;
+        }
 
         void run();
 
