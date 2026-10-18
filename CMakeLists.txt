@@ -13,6 +13,7 @@ set(GLFW_INSTALL OFF CACHE BOOL "GLFW lib only")
 add_subdirectory("deps/glfw")
 
 include_directories("deps/glad/include")
+include_directories("deps/stb")
 
 add_executable(${PROJECT_NAME}
         deps/glad/src/gl.c
@@ -36,6 +37,7 @@ add_executable(${PROJECT_NAME}
         src/opengl/window/WindowUtilities.cpp
         src/file/FileUtilities.hpp
         src/file/FileUtilities.cpp
+        src/opengl/object/shader/ShaderProgram.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} glfw)
