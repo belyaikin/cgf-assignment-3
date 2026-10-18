@@ -5,11 +5,14 @@
 #include "FileUtilities.hpp"
 
 #include <fstream>
+#include <iostream>
 #include <string>
 
 namespace assignment::file {
     std::string FileUtilities::getFileContents(const char *filename) {
         if (std::ifstream in(filename, std::ios::binary); in) {
+            std::cout << "[FileUtilities]: Successfully found file at " << filename << "\n";
+
             std::string contents;
 
             in.seekg(0, std::ios::end);

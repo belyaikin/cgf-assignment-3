@@ -20,7 +20,7 @@ namespace assignment::opengl::window
         );
 
         if (!window) {
-            std::cout << "[WindowUtilities]: Failed to create GLFW window" << std::endl;
+            std::cout << "[WindowUtilities]: Failed to create GLFW window\n";
             glfwTerminate();
             return nullptr;
         }
@@ -29,7 +29,7 @@ namespace assignment::opengl::window
         glfwSetWindowSizeCallback(window, windowSizeChangeCallback);
 
         if (!gladLoadGL(glfwGetProcAddress)) {
-            std::cout << "[WindowUtilities]: Failed to initialize GLAD" << std::endl;
+            std::cout << "[WindowUtilities]: Failed to initialize GLAD\n";
             glfwTerminate();
             return nullptr;
         }
@@ -38,7 +38,7 @@ namespace assignment::opengl::window
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 
-        std::cout << "[WindowUtilities]: Created window" << std::endl;
+        std::cout << "[WindowUtilities]: Created window\n";
         return window;
     }
 }

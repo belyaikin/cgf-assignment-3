@@ -26,10 +26,10 @@ namespace assignment::opengl::object::shader
 
         if (!success) {
             glGetShaderInfoLog(shader.getId(), 512, nullptr, infoLog);
-            std::cout << "[ShaderFactory]: " << infoLog << std::endl;
+            std::cout << "[ShaderFactory]: " << infoLog << "\n";
         }
 
-        std::cout << "[ShaderFactory]: Successfully compiled shader " << shader.getId() << std::endl;
+        std::cout << "[ShaderFactory]: Successfully compiled shader " << shader.getId() << "\n";
 
         return shader;
     }
@@ -37,12 +37,12 @@ namespace assignment::opengl::object::shader
     ShaderProgram ShaderFactory::createShaderProgram(const std::vector<Shader>& shaders) {
         const auto shaderProgram = ShaderProgram{glCreateProgram()};
 
-        std::cout << "[ShaderFactory]: Created shader program " << shaderProgram.getId() << std::endl;
+        std::cout << "[ShaderFactory]: Created shader program " << shaderProgram.getId() << "\n";
 
         for (const Shader& shader : shaders) {
             glAttachShader(shaderProgram.getId(), shader.getId());
 
-            std::cout << "[ShaderFactory]: Attached shader " << shader.getId() << " to shader program " << shaderProgram.getId() << std::endl;
+            std::cout << "[ShaderFactory]: Attached shader " << shader.getId() << " to shader program " << shaderProgram.getId() << "\n";
         }
 
         glLinkProgram(shaderProgram.getId());
