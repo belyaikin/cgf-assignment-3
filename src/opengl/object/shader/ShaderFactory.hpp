@@ -14,7 +14,7 @@ namespace assignment::opengl::object::shader
     class ShaderFactory
     {
     public:
-        static Shader createShader(GLenum type, const char *shaderSource);
+        static Shader createShader(GLenum type, const char *sourcePath);
         static ShaderProgram createShaderProgram(const std::vector<Shader>& shaders);
     };
 }

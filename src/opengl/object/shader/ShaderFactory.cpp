@@ -6,14 +6,18 @@
 
 #include <iostream>
 
+#include "../../../file/FileUtilities.hpp"
 #include "glad/gl.h"
 
 namespace assignment::opengl::object::shader
 {
-    Shader ShaderFactory::createShader(const GLenum type, const char *shaderSource) {
+    Shader ShaderFactory::createShader(const GLenum type, const char *sourcePath) {
         const auto shader = Shader{glCreateShader(type)};
 
-        glShaderSource(shader.getId(), 1, &shaderSource, nullptr);
+        const std::string source = file::FileUtilities::getFileContents(sourcePath);
+        const GLchar* sourcePtr = source.c_str();
+        glShaderSource(shader.getId(), 1, &sourcePtr, nullptr);
+
         glCompileShader(shader.getId());
 
         int success;

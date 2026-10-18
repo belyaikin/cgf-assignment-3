@@ -4,8 +4,13 @@
 
 #include "Shader.hpp"
 
+#include <fstream>
+#include <ios>
+
 namespace assignment::opengl::object::shader
 {
+    Shader::Shader(const GLuint id) : Object(id) {}
+
     void Shader::destroy() const
     {
         glDeleteShader(this->id);

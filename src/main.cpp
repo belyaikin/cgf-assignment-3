@@ -20,25 +20,25 @@ int main() {
         }
     };
 
-    auto basicVertexShader =
+    auto defaultVertexShader =
         opengl::object::shader::ShaderFactory::createShader(
             GL_VERTEX_SHADER,
-            opengl::object::shader::basicVertexShaderSource
+            "../res/shaders/default.vert"
             );
 
-    auto whiteFragmentShader =
+    auto defaultFragmentShader =
         opengl::object::shader::ShaderFactory::createShader(
             GL_FRAGMENT_SHADER,
-            opengl::object::shader::getColoredFragmentShaderSource(1.f, 0.5f, 1.f).data()
+            "../res/shaders/default.frag"
             );
 
     const auto whiteSquareShaderProgram =
         opengl::object::shader::ShaderFactory::createShaderProgram({
-        basicVertexShader, whiteFragmentShader
+        defaultVertexShader, defaultFragmentShader
     });
 
-    basicVertexShader.destroy();
-    whiteFragmentShader.destroy();
+    defaultVertexShader.destroy();
+    defaultFragmentShader.destroy();
 
     auto whiteSquare = opengl::Renderable{
         {

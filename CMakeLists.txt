@@ -19,7 +19,6 @@ add_executable(${PROJECT_NAME}
         src/main.cpp
         src/opengl/object/shader/ShaderFactory.cpp
         src/opengl/object/shader/ShaderFactory.hpp
-        src/opengl/object/shader/Shaders.hpp
         src/opengl/object/shader/Shader.hpp
         src/opengl/object/Object.hpp
         src/opengl/object/shader/ShaderProgram.hpp
@@ -35,6 +34,8 @@ add_executable(${PROJECT_NAME}
         src/opengl/object/shader/Shader.cpp
         src/Scene.hpp
         src/opengl/window/WindowUtilities.cpp
+        src/file/FileUtilities.hpp
+        src/file/FileUtilities.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} glfw)

@@ -12,10 +12,8 @@ namespace assignment::opengl::object::shader
 {
     class Shader : public Object
     {
-        std::string path;
-
     public:
-        explicit Shader(const GLuint id) : Object(id) {}
+        explicit Shader(GLuint id);
 
         void setBool(std::string name, bool value);
         void setInt(std::string name, int value);
