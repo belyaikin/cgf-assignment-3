@@ -6,12 +6,17 @@
 #include <string>
 
 #include "Scene.hpp"
-#include "WindowUtils.hpp"
 #include "GLFW/glfw3.h"
 #include "opengl/Renderer.hpp"
 
 namespace assignment
 {
+    struct WindowProperties {
+        int width;
+        int height;
+        std::string title;
+    };
+
     class Application
     {
         GLFWwindow *window;
@@ -23,16 +28,7 @@ namespace assignment
         void render();
 
     public:
-        explicit Application(const int windowWidth, const int windowHeight, const std::string& windowTitle)
-        {
-            if (!glfwInit()) return;
-
-            glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-            glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-            glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
-
-            window = opengl::WindowUtilities::createWindow(windowWidth, windowHeight, windowTitle);
-        }
+        explicit Application(const WindowProperties &windowProperties);
 
         void setScene(Scene *scene) {this->scene = scene;}
 

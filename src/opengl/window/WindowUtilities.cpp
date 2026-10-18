@@ -4,18 +4,18 @@
 
 #include "WindowUtilities.hpp"
 
-namespace assignment::window
+namespace assignment::opengl::window
 {
     void WindowUtilities::windowSizeChangeCallback(GLFWwindow *window, const int width, const int height)
     {
         glViewport(0, 0, width, height);
     }
 
-    GLFWwindow * WindowUtilities::createWindow(const WindowProperties &properties)
+    GLFWwindow * WindowUtilities::createWindow(const int width, const int height, const char* title)
     {
         GLFWwindow* window = glfwCreateWindow(
-            properties.width, properties.height,
-            properties.title.c_str(),
+            width, height,
+            title,
             nullptr, nullptr
         );
 
@@ -34,7 +34,7 @@ namespace assignment::window
             return nullptr;
         }
 
-        glViewport(0, 0, properties.width, properties.height);
+        glViewport(0, 0, width, height);
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 

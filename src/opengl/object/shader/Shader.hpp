@@ -21,6 +21,6 @@ namespace assignment::opengl::object::shader
         void setInt(std::string name, int value);
         void setString(std::string name, std::string value);
 
-        void destroy();
+        void destroy() const;
     };
 }

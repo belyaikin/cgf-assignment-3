@@ -6,7 +6,7 @@
 
 namespace assignment::opengl::object::shader
 {
-    void Shader::destroy()
+    void Shader::destroy() const
     {
         glDeleteShader(this->id);
     }

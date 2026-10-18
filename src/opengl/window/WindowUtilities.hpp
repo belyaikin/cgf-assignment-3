@@ -8,19 +8,13 @@
 #include "glad/gl.h"
 #include "GLFW/glfw3.h"
 
-namespace assignment::window
+namespace assignment::opengl::window
 {
     class WindowUtilities
     {
     public:
-        struct WindowProperties {
-            int width;
-            int height;
-            std::string title;
-        };
-
         static void windowSizeChangeCallback(GLFWwindow *window, int width, int height);
 
-        static GLFWwindow* createWindow(const WindowProperties& properties);
+        static GLFWwindow * createWindow(int width, int height, const char* title);
     };
 }

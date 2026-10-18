@@ -12,12 +12,6 @@
 using namespace assignment;
 
 int main() {
-    auto application = Application{
-        WINDOW_WIDTH,
-        WINDOW_HEIGHT,
-        WINDOW_TITLE
-    };
-
     auto basicVertexShader =
         opengl::object::shader::ShaderFactory::createShader(
             GL_VERTEX_SHADER,
@@ -53,6 +47,14 @@ int main() {
 
     auto scene = Scene{};
     scene.addRenderable(&whiteSquare);
+
+    auto application = Application{
+        {
+            .width = WINDOW_WIDTH,
+            .height = WINDOW_HEIGHT,
+            .title = WINDOW_TITLE
+        }
+    };
 
     application.setScene(&scene);
     application.run();
