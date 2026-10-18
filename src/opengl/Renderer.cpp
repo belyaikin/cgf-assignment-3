@@ -8,7 +8,7 @@ namespace assignment::opengl
 {
     void Renderer::draw(const Renderable &renderable)
     {
-        sendRenderableVertexDataToGpu(renderable);
+        setupBuffers(renderable.getVertices(), renderable.getVertexArray(), renderable.getVertexBuffer());
 
         glUseProgram(renderable.getShaderProgram().getId());
 
@@ -17,15 +17,15 @@ namespace assignment::opengl
         glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(renderable.getVertexCount()));
     }
 
-    void Renderer::sendRenderableVertexDataToGpu(const Renderable &renderable) const
+    void Renderer::setupBuffers(const std::vector<float>& vertices, const object::VertexArray& vertexArray, const object::Buffer& vertexBuffer) const
     {
-        glBindVertexArray(renderable.getVertexArray().getId());
-        glBindBuffer(GL_ARRAY_BUFFER, renderable.getVertexBuffer().getId());
+        glBindVertexArray(vertexArray.getId());
+        glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer.getId());
 
         glBufferData(
             GL_ARRAY_BUFFER,
-            renderable.getVertices().size() * sizeof(float),
-            renderable.getVertices().data(),
+            vertices.size() * sizeof(float),
+            vertices.data(),
             GL_STATIC_DRAW
         );
 
