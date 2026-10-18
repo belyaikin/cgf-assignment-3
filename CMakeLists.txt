@@ -12,8 +12,7 @@ set(GLFW_INSTALL OFF CACHE BOOL "GLFW lib only")
 
 add_subdirectory("deps/glfw")
 
-include_directories("deps/glad/include")
-include_directories("deps/stb")
+include_directories("deps/glad/include" "deps/stb" "deps/glm")
 
 add_executable(${PROJECT_NAME}
         deps/glad/src/gl.c
@@ -26,14 +25,13 @@ add_executable(${PROJECT_NAME}
         src/opengl/window/WindowUtilities.hpp
         src/opengl/Renderer.cpp
         src/opengl/Renderer.hpp
-        src/opengl/Renderable.cpp
-        src/opengl/Renderable.hpp
+        src/opengl/Mesh.cpp
+        src/opengl/Mesh.hpp
         src/opengl/object/Buffer.hpp
         src/opengl/object/VertexArray.hpp
         src/Application.hpp
         src/Application.cpp
         src/opengl/object/shader/Shader.cpp
-        src/Scene.hpp
         src/opengl/window/WindowUtilities.cpp
         src/file/FileUtilities.hpp
         src/file/FileUtilities.cpp

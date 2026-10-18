@@ -5,8 +5,9 @@
 #pragma once
 #include <string>
 
-#include "Scene.hpp"
+#define GLFW_INCLUDE_NONE
 #include "GLFW/glfw3.h"
+
 #include "opengl/Renderer.hpp"
 
 namespace assignment
@@ -21,19 +22,14 @@ namespace assignment
     {
         GLFWwindow *window;
 
-        Scene *scene;
-
         opengl::Renderer renderer = opengl::Renderer{};
 
-        void render();
+        void draw() const;
 
     public:
         explicit Application(const WindowProperties &windowProperties);
 
-        void setScene(Scene *scene) {
-            if (scene == nullptr) return;
-            this->scene = scene;
-        }
+        void addMesh(const opengl::Mesh &mesh);
 
         void run();
 

@@ -37,7 +37,6 @@ namespace assignment::opengl::window
         glViewport(0, 0, width, height);
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
-
         std::cout << "[WindowUtilities]: Created window\n";
         return window;
     }

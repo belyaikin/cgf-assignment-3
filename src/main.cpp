@@ -39,7 +39,7 @@ int main() {
     defaultVertexShader.destroy();
     defaultFragmentShader.destroy();
 
-    auto whiteSquare = opengl::Renderable{
+    const auto whiteSquare = opengl::Mesh{
         {
             -0.5f, -0.5f, 0.0f,
             0.5f, -0.5f, 0.0f,
@@ -52,10 +52,7 @@ int main() {
         whiteSquareShaderProgram
     };
 
-    auto scene = Scene{};
-    scene.addRenderable(&whiteSquare);
-
-    application.setScene(&scene);
+    application.addMesh(whiteSquare);
     application.run();
 
     return 0;

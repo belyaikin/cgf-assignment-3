@@ -11,7 +11,7 @@
 namespace assignment::file {
     std::string FileUtilities::getFileContents(const char *filename) {
         if (std::ifstream in(filename, std::ios::binary); in) {
-            std::cout << "[FileUtilities]: Successfully found file at " << filename << "\n";
+            std::cout << "[FileUtilities]: Found file at " << filename << "\n";
 
             std::string contents;
 

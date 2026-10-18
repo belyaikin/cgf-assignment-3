@@ -12,7 +12,7 @@
 
 namespace assignment::opengl
 {
-    class Renderable
+    class Mesh final
     {
         const object::shader::ShaderProgram shaderProgram;
 
@@ -25,7 +25,7 @@ namespace assignment::opengl
         static GLuint generateVertexBuffer();
 
     public:
-        Renderable(const std::vector<GLfloat> &vertexData, const object::shader::ShaderProgram shaderProgram) :
+        Mesh(const std::vector<GLfloat> &vertexData, const object::shader::ShaderProgram shaderProgram) :
             shaderProgram(shaderProgram),
             vertexData(vertexData),
             vertexBuffer(generateVertexBuffer()),

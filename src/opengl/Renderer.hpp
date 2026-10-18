@@ -3,15 +3,18 @@
 //
 
 #pragma once
-#include "Renderable.hpp"
+
+#include "Mesh.hpp"
 
 namespace assignment::opengl
 {
     class Renderer
     {
-    public:
-        void draw(const Renderable &renderable);
+        std::vector<Mesh> meshes = {};
 
-        void setupBuffers(const std::vector<float>& vertexData, const object::VertexArray& vertexArray, const object::Buffer& vertexBuffer) const;
+        static void setupBuffers(const std::vector<float>& vertexData, const object::VertexArray& vertexArray, const object::Buffer& vertexBuffer) ;
+    public:
+        void addMesh(const Mesh& mesh);
+        void render() const;
     };
 }

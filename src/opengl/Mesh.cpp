@@ -2,18 +2,18 @@
 // Created by Dmitriy on 02.10.2026.
 //
 
-#include "Renderable.hpp"
+#include "Mesh.hpp"
 
 namespace assignment::opengl
 {
-    GLuint Renderable::generateVertexArray()
+    GLuint Mesh::generateVertexArray()
     {
         GLuint vertexArrayId;
         glGenVertexArrays(1, &vertexArrayId);
         return vertexArrayId;
     }
 
-    GLuint Renderable::generateVertexBuffer()
+    GLuint Mesh::generateVertexBuffer()
     {
         GLuint vertexBufferId;
         glGenBuffers(1, &vertexBufferId);

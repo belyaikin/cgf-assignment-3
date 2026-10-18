@@ -23,23 +23,24 @@ namespace assignment
         );
     }
 
+    void Application::addMesh(const opengl::Mesh &mesh) { renderer.addMesh(mesh); }
+
     void Application::run()
     {
         while (!glfwWindowShouldClose(window))
         {
             glfwPollEvents();
-            render();
+            draw();
         }
 
         glfwTerminate();
     }
 
-    void Application::render()
+    void Application::draw() const
     {
         glClear(GL_COLOR_BUFFER_BIT);
 
-        for (const opengl::Renderable* renderable : scene->getRenderables())
-            renderer.draw(*renderable);
+        renderer.render();
 
         glfwSwapBuffers(window);
     }
