@@ -20,7 +20,7 @@ namespace assignment::opengl
         auto proj = glm::mat4x4(1.0f);
 
         view = glm::translate(view, glm::vec3(0.0f, -0.5f, -2.0f));
-        proj = glm::perspective(glm::radians(45.0f), static_cast<float>(800 / 600), .1f, 100.0f);
+        proj = glm::perspective(glm::radians(45.0f), 800.f / 600.f, .1f, 100.0f);
 
         for (const Mesh& mesh : this->meshes) {
             setupBuffers(mesh.getVertexData(), mesh.getVertexArray(), mesh.getVertexBuffer());
