@@ -21,6 +21,8 @@ namespace assignment
             windowProperties.height,
             windowProperties.title.c_str()
         );
+
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
     void Application::addMesh(const opengl::Mesh &mesh) { renderer.addMesh(mesh); }
