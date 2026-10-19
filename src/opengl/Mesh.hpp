@@ -25,16 +25,11 @@ namespace assignment::opengl
         static GLuint generateVertexBuffer();
 
     public:
-        Mesh(const std::vector<GLfloat> &vertexData, const object::shader::ShaderProgram shaderProgram) :
-            shaderProgram(shaderProgram),
-            vertexData(vertexData),
-            vertexBuffer(generateVertexBuffer()),
-            vertexArray(generateVertexArray())
-        {}
+        Mesh(const std::vector<GLfloat> &vertexData, const object::shader::ShaderProgram shaderProgram);
 
         [[nodiscard]] const object::shader::ShaderProgram &getShaderProgram() const { return shaderProgram; }
 
-        [[nodiscard]] std::vector<float> getVertexData() const { return vertexData; }
+        [[nodiscard]] const std::vector<GLfloat> &getVertexData() const { return vertexData; }
 
         [[nodiscard]] const object::VertexArray &getVertexArray() const { return vertexArray; }
         [[nodiscard]] const object::Buffer &getVertexBuffer() const { return vertexBuffer; }

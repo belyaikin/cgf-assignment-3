@@ -12,6 +12,8 @@ namespace assignment
     {
         if (!glfwInit()) return;
 
+        std::cout << "[Application]: Initialized GLFW\n";
+
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
@@ -22,7 +24,10 @@ namespace assignment
             windowProperties.title.c_str()
         );
 
+        glEnable(GL_DEPTH_TEST);
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+
+        std::cout << "[Application]: Initialized application\n";
     }
 
     void Application::addMesh(const opengl::Mesh &mesh) { renderer.addMesh(mesh); }
@@ -40,7 +45,7 @@ namespace assignment
 
     void Application::draw() const
     {
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         renderer.render();
 

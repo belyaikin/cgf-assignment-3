@@ -14,4 +14,10 @@ namespace assignment::opengl::object::shader {
         const GLuint uniformId = glGetUniformLocation(this->id, name.c_str());
         glUniform1i(uniformId, value);
     }
+
+    void ShaderProgram::setFloat(const std::string &name, const float value)
+    {
+        const GLuint uniformId = glGetUniformLocation(this->id, name.c_str());
+        glUniform1f(uniformId, value);
+    }
 }

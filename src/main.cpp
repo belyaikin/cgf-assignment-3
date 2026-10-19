@@ -4,8 +4,8 @@
 #include "opengl/Renderer.hpp"
 #include "opengl/object/shader/ShaderFactory.hpp"
 
-#define WINDOW_WIDTH 600
-#define WINDOW_HEIGHT 600
+#define WINDOW_WIDTH 640
+#define WINDOW_HEIGHT 640
 #define WINDOW_TITLE "Assignment 3 - Dmitriy Belyaikin"
 
 using namespace assignment;
@@ -31,7 +31,7 @@ int main() {
             "../res/shaders/default.frag"
             );
 
-    const auto whiteSquareShaderProgram =
+    auto whiteSquareShaderProgram =
         opengl::object::shader::ShaderFactory::createShaderProgram({
         defaultVertexShader, defaultFragmentShader
     });
@@ -53,7 +53,9 @@ int main() {
     };
 
     application.addMesh(whiteSquare);
+    application.setCameraPosition(glm::vec3(0.f, 0.f, -4.f));
     application.run();
+
 
     return 0;
 }

@@ -5,6 +5,7 @@
 #pragma once
 
 #include "Mesh.hpp"
+#include "glm/vec3.hpp"
 
 namespace assignment::opengl
 {
@@ -12,9 +13,17 @@ namespace assignment::opengl
     {
         std::vector<Mesh> meshes = {};
 
-        static void setupBuffers(const std::vector<float>& vertexData, const object::VertexArray& vertexArray, const object::Buffer& vertexBuffer) ;
+        glm::vec3 cameraPosition = glm::vec3(0.0f, 0.0f, 0.0f);
+        float cameraFov = 45.0f;
     public:
         void addMesh(const Mesh& mesh);
+
+        [[nodiscard]] const glm::vec3& getCameraPosition() const { return cameraPosition; }
+        void setCameraPosition(const glm::vec3& value) { this->cameraPosition = value; }
+
+        [[nodiscard]] float getCameraFov() const { return cameraFov; }
+        void setCameraFov(const float value) { this->cameraFov = value; }
+
         void render() const;
     };
 }

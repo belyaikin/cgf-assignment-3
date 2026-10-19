@@ -19,13 +19,13 @@ namespace assignment::opengl
         auto view = glm::mat4x4(1.0f);
         auto proj = glm::mat4x4(1.0f);
 
-        view = glm::translate(view, glm::vec3(0.0f, -0.5f, -2.0f));
-        proj = glm::perspective(glm::radians(45.0f), 800.f / 600.f, .1f, 100.0f);
+        view = glm::translate(view, cameraPosition);
+        proj = glm::perspective(glm::radians(45.0f), 640.f / 640.f, .1f, 100.0f);
 
         for (const Mesh& mesh : this->meshes) {
-            setupBuffers(mesh.getVertexData(), mesh.getVertexArray(), mesh.getVertexBuffer());
-
             glUseProgram(mesh.getShaderProgram().getId());
+
+            glBindVertexArray(mesh.getVertexArray().getId());
 
             const int modelLoc = glGetUniformLocation(mesh.getShaderProgram().getId(), "model");
             glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
@@ -37,32 +37,9 @@ namespace assignment::opengl
             glBindVertexArray(mesh.getVertexArray().getId());
 
             glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(mesh.getVertexData().size() / 3));
+
+            glBindVertexArray(0);
+            glBindBuffer(GL_ARRAY_BUFFER, 0);
         }
-    }
-
-    void Renderer::setupBuffers(const std::vector<GLfloat>& vertexData, const object::VertexArray& vertexArray, const object::Buffer& vertexBuffer)
-    {
-        glBindVertexArray(vertexArray.getId());
-        glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer.getId());
-
-        glBufferData(
-            GL_ARRAY_BUFFER,
-            vertexData.size() * sizeof(float),
-            vertexData.data(),
-            GL_STATIC_DRAW
-        );
-
-        glVertexAttribPointer(
-            0,
-            3,
-            GL_FLOAT,
-            GL_FALSE,
-            3 * sizeof(float),
-            nullptr
-        );
-        glEnableVertexAttribArray(0);
-
-        glBindVertexArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
     }
 }
