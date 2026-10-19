@@ -5,14 +5,30 @@ set(CMAKE_CXX_STANDARD 20)
 
 find_package(OpenGL REQUIRED)
 
+include(FetchContent)
+
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "GLFW lib only")
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "GLFW lib only")
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "GLFW lib only")
 set(GLFW_INSTALL OFF CACHE BOOL "GLFW lib only")
 
-add_subdirectory("deps/glfw")
+FetchContent_Declare(
+        glfw
+        GIT_REPOSITORY https://github.com/glfw/glfw.git
+        GIT_TAG 3.5.1
+        GIT_SHALLOW TRUE
+)
+FetchContent_MakeAvailable(glfw)
 
-include_directories("deps/glad/include" "deps/stb" "deps/glm")
+FetchContent_Declare(
+        glm
+        GIT_REPOSITORY https://github.com/g-truc/glm.git
+        GIT_TAG 1.0.1
+        GIT_SHALLOW TRUE
+)
+FetchContent_MakeAvailable(glm)
+
+include_directories("deps/glad/include" "deps/stb")
 
 add_executable(${PROJECT_NAME}
         deps/glad/src/gl.c
@@ -38,4 +54,4 @@ add_executable(${PROJECT_NAME}
         src/opengl/object/shader/ShaderProgram.cpp
 )
 
-target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} glfw)
+target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} glfw glm::glm)
