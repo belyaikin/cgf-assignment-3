@@ -32,7 +32,7 @@ namespace assignment
 
     void Application::addMesh(const opengl::Mesh &mesh) { renderer.addMesh(mesh); }
 
-    void Application::run()
+    void Application::run() const
     {
         while (!glfwWindowShouldClose(window))
         {

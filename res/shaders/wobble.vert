@@ -7,8 +7,13 @@ uniform mat4 proj;
 
 uniform float t;
 
+vec4 calculatePerspective(vec3 position) {
+    return proj * view * model * vec4(position, 1.0);
+}
+
 void main()
 {
-    gl_Position = proj * view * model *
-        vec4(aPos.x - sin(t), aPos.y + sin(t), aPos.z - sin(t), 1.0);
+    vec3 animatedPos = aPos - vec3(sin(t));
+
+    gl_Position = calculatePerspective(animatedPos);
 }

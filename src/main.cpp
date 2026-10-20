@@ -23,18 +23,19 @@ int main() {
         opengl::object::shader::ShaderFactory::createShader(
             GL_VERTEX_SHADER,
             "../res/shaders/default.vert"
-            );
+    );
 
     auto defaultFragmentShader =
         opengl::object::shader::ShaderFactory::createShader(
             GL_FRAGMENT_SHADER,
             "../res/shaders/default.frag"
-            );
+    );
 
-    auto whiteSquareShaderProgram =
+    const auto defaultShadersProgram =
         opengl::object::shader::ShaderFactory::createShaderProgram({
-        defaultVertexShader, defaultFragmentShader
-    });
+            defaultVertexShader, defaultFragmentShader
+        }
+    );
 
     defaultVertexShader.destroy();
     defaultFragmentShader.destroy();
@@ -49,13 +50,13 @@ int main() {
             0.5f, 0.5f, 0.0f,
             0.5f, -0.5f, 0.0f,
         },
-        whiteSquareShaderProgram
+        defaultShadersProgram
     };
 
     application.addMesh(whiteSquare);
+
     application.setCameraPosition(glm::vec3(0.f, 0.f, -4.f));
+
     application.run();
-
-
     return 0;
 }

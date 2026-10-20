@@ -34,7 +34,7 @@ namespace assignment
         [[nodiscard]] const glm::vec3& getCameraPosition() const { return this->renderer.getCameraPosition(); }
         void setCameraPosition(const glm::vec3& value) { renderer.setCameraPosition(value); }
 
-        void run();
+        void run() const;
 
         [[nodiscard]] opengl::Renderer getRenderer() const { return renderer; }
     };
