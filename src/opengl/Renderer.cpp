@@ -27,11 +27,11 @@ namespace assignment::opengl
 
             glBindVertexArray(mesh.getVertexArray().getId());
 
-            const int modelLoc = glGetUniformLocation(mesh.getShaderProgram().getId(), "model");
+            const GLint modelLoc = glGetUniformLocation(mesh.getShaderProgram().getId(), "model");
             glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-            const int viewLoc = glGetUniformLocation(mesh.getShaderProgram().getId(), "view");
+            const GLint viewLoc = glGetUniformLocation(mesh.getShaderProgram().getId(), "view");
             glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
-            const int projLoc = glGetUniformLocation(mesh.getShaderProgram().getId(), "proj");
+            const GLint projLoc = glGetUniformLocation(mesh.getShaderProgram().getId(), "proj");
             glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(proj));
 
             glBindVertexArray(mesh.getVertexArray().getId());
