@@ -30,6 +30,9 @@ namespace assignment
         glEnable(GL_DEPTH_TEST);
         glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
+        std::cout << "[Application]: "
+        << "Renderer: " << glGetString(GL_RENDERER) << ", version: " << glGetString(GL_VERSION) << "\n";
+
         std::cout << "[Application]: Initialized application\n";
     }
 
