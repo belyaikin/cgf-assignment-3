@@ -4,8 +4,8 @@
 #include "opengl/Renderer.hpp"
 #include "opengl/object/shader/ShaderFactory.hpp"
 
-#define WINDOW_WIDTH 640
-#define WINDOW_HEIGHT 640
+#define WINDOW_WIDTH 1280
+#define WINDOW_HEIGHT 720
 #define WINDOW_TITLE "Assignment 3 - Dmitriy Belyaikin"
 
 using namespace assignment;
