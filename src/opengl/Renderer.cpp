@@ -34,8 +34,6 @@ namespace assignment::opengl
             const GLint projLoc = glGetUniformLocation(mesh.getShaderProgram().getId(), "proj");
             glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(proj));
 
-            glBindVertexArray(mesh.getVertexArray().getId());
-
             glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(mesh.getVertexData().size() / 3));
 
             glBindVertexArray(0);
