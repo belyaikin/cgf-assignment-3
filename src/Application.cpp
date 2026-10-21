@@ -38,7 +38,7 @@ namespace assignment
 
     void Application::addMesh(const opengl::Mesh &mesh) { renderer.addMesh(mesh); }
 
-    void Application::run() const
+    void Application::run()
     {
         while (!glfwWindowShouldClose(window))
         {
@@ -49,8 +49,17 @@ namespace assignment
         glfwTerminate();
     }
 
-    void Application::draw() const
+    void Application::draw()
     {
+        int xFramebufferSize, yFramebufferSize;
+        glfwGetFramebufferSize(window, &xFramebufferSize, &yFramebufferSize);
+
+        if (xFramebufferSize == 0 || yFramebufferSize == 0)
+            return;
+
+        renderer.setFrameBufferSize(glm::vec2(xFramebufferSize, yFramebufferSize));
+        glViewport(0, 0, xFramebufferSize, yFramebufferSize);
+
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         renderer.render();

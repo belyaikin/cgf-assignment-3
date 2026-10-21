@@ -20,7 +20,7 @@ namespace assignment::opengl
         auto proj = glm::mat4x4(1.0f);
 
         view = glm::translate(view, cameraPosition);
-        proj = glm::perspective(glm::radians(45.0f), 640.f / 640.f, .1f, 100.0f);
+        proj = glm::perspective(glm::radians(45.0f), frameBufferSize.x / frameBufferSize.y, .1f, 100.0f);
 
         for (const Mesh& mesh : this->meshes) {
             glUseProgram(mesh.getShaderProgram().getId());

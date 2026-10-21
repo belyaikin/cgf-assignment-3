@@ -24,17 +24,17 @@ namespace assignment
 
         opengl::Renderer renderer = opengl::Renderer{};
 
-        void draw() const;
+        void draw();
 
     public:
         explicit Application(const WindowProperties &windowProperties);
 
         void addMesh(const opengl::Mesh &mesh);
 
-        [[nodiscard]] const glm::vec3& getCameraPosition() const { return this->renderer.getCameraPosition(); }
+        [[nodiscard]] const glm::vec3& getCameraPosition() const { return renderer.getCameraPosition(); }
         void setCameraPosition(const glm::vec3& value) { renderer.setCameraPosition(value); }
 
-        void run() const;
+        void run();
 
         [[nodiscard]] opengl::Renderer getRenderer() const { return renderer; }
     };
