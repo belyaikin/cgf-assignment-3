@@ -52,6 +52,8 @@ add_executable(${PROJECT_NAME}
         src/file/FileUtilities.hpp
         src/file/FileUtilities.cpp
         src/opengl/object/shader/ShaderProgram.cpp
+        src/opengl/Camera.hpp
+        src/opengl/Camera.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} glfw glm::glm)

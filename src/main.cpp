@@ -10,15 +10,7 @@
 
 using namespace assignment;
 
-int main() {
-    auto application = Application{
-        {
-            .width = WINDOW_WIDTH,
-            .height = WINDOW_HEIGHT,
-            .title = WINDOW_TITLE
-        }
-    };
-
+static void setupObjects(Application& application) {
     auto defaultVertexShader =
         opengl::object::shader::ShaderFactory::createShader(
             GL_VERTEX_SHADER,
@@ -54,8 +46,21 @@ int main() {
     };
 
     application.addMesh(whiteSquare);
+}
 
-    application.setCameraPosition(glm::vec3(0.f, 0.f, -4.f));
+int main() {
+    auto application = Application{
+        {
+            .width = WINDOW_WIDTH,
+            .height = WINDOW_HEIGHT,
+            .title = WINDOW_TITLE
+        },
+        opengl::Camera{
+            glm::vec3(0.f, 0.f, -4.f)
+        }
+    };
+
+    setupObjects(application);
 
     application.run();
     return 0;

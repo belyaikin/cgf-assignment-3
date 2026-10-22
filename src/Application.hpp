@@ -22,20 +22,17 @@ namespace assignment
     {
         GLFWwindow *window;
 
-        opengl::Renderer renderer = opengl::Renderer{};
+        opengl::Renderer renderer;
 
         void draw();
 
     public:
-        explicit Application(const WindowProperties &windowProperties);
+        explicit Application(const WindowProperties &windowProperties, const opengl::Camera &camera);
+
+        [[nodiscard]] opengl::Renderer getRenderer() const { return renderer; }
 
         void addMesh(const opengl::Mesh &mesh);
 
-        [[nodiscard]] const glm::vec3& getCameraPosition() const { return renderer.getCameraPosition(); }
-        void setCameraPosition(const glm::vec3& value) { renderer.setCameraPosition(value); }
-
         void run();
-
-        [[nodiscard]] opengl::Renderer getRenderer() const { return renderer; }
     };
 }

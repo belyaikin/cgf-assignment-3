@@ -8,7 +8,8 @@
 
 namespace assignment
 {
-    Application::Application(const WindowProperties &windowProperties)
+    Application::Application(const WindowProperties &windowProperties, const opengl::Camera &camera)
+        : renderer(camera)
     {
         if (!glfwInit()) return;
 
@@ -43,6 +44,7 @@ namespace assignment
         while (!glfwWindowShouldClose(window))
         {
             glfwPollEvents();
+            renderer.camera.move(window);
             draw();
         }
 
@@ -57,7 +59,7 @@ namespace assignment
         if (xFramebufferSize == 0 || yFramebufferSize == 0)
             return;
 
-        renderer.setFrameBufferSize(glm::vec2(xFramebufferSize, yFramebufferSize));
+        renderer.camera.setViewportSize(glm::vec2(xFramebufferSize, yFramebufferSize));
         glViewport(0, 0, xFramebufferSize, yFramebufferSize);
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
