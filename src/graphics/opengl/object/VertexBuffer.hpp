@@ -1,8 +1,18 @@
 //
-// Created by Dmitriy on 23.10.26.
+// Created by Dmitriy on 02.10.2026.
 //
 
-#ifndef ASSIGNMENT3_VERTEXBUFFER_HPP
-#define ASSIGNMENT3_VERTEXBUFFER_HPP
+#pragma once
+#include "Object.hpp"
 
-#endif //ASSIGNMENT3_VERTEXBUFFER_HPP
+namespace assignment::graphics::opengl::object
+{
+    class VertexBuffer final : public Object
+    {
+    public:
+        explicit VertexBuffer(const GLuint id)
+            : Object(id)
+        {
+        }
+    };
+}

@@ -9,12 +9,11 @@
 namespace assignment::graphics
 {
     Mesh::Mesh(const VertexData &vertexData, const opengl::object::shader::ShaderProgram shaderProgram)
-        :
-        shaderProgram(shaderProgram),
-        vertexData(vertexData),
-        vertexBuffer(generateVertexBuffer()),
-        vertexArray(generateVertexArray())
-    {
+        : shaderProgram(shaderProgram),
+          vertexData(vertexData),
+          vertexBuffer(generateVertexBuffer()),
+          elementBuffer(generateElementBuffer()),
+          vertexArray(generateVertexArray()) {
         // Vertex Array Object initialization should be somewhere else but not here
         glBindVertexArray(vertexArray.getId());
         glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer.getId());
@@ -52,5 +51,11 @@ namespace assignment::graphics
         GLuint vertexBufferId;
         glGenBuffers(1, &vertexBufferId);
         return vertexBufferId;
+    }
+
+    GLuint Mesh::generateElementBuffer() {
+        GLuint elementBufferId;
+        glGenBuffers(1, &elementBufferId);
+        return elementBufferId;
     }
 }

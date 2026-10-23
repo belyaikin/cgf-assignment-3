@@ -43,7 +43,7 @@ add_executable(${PROJECT_NAME}
         src/graphics/Renderer.hpp
         src/graphics/Mesh.cpp
         src/graphics/Mesh.hpp
-        src/graphics/opengl/object/Buffer.hpp
+        src/graphics/opengl/object/VertexBuffer.hpp
         src/graphics/opengl/object/VertexArray.hpp
         src/Application.hpp
         src/Application.cpp
@@ -54,7 +54,6 @@ add_executable(${PROJECT_NAME}
         src/graphics/opengl/object/shader/ShaderProgram.cpp
         src/graphics/Camera.hpp
         src/graphics/Camera.cpp
-        src/graphics/opengl/object/VertexBuffer.hpp
         src/graphics/opengl/object/ElementBuffer.hpp
 )
 

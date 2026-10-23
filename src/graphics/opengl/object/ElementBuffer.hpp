@@ -2,7 +2,15 @@
 // Created by Dmitriy on 23.10.26.
 //
 
-#ifndef ASSIGNMENT3_ELEMENTBUFFER_HPP
-#define ASSIGNMENT3_ELEMENTBUFFER_HPP
+#pragma once
+#include "Object.hpp"
 
-#endif //ASSIGNMENT3_ELEMENTBUFFER_HPP
+namespace assignment::graphics::opengl::object {
+    class ElementBuffer final : public Object {
+    public:
+        explicit ElementBuffer(const GLuint id)
+            : Object(id)
+        {
+        }
+    };
+}
