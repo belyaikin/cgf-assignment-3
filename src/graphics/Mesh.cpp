@@ -20,7 +20,7 @@ namespace assignment::graphics
 
         glBufferData(
             GL_ARRAY_BUFFER,
-            vertexData.vertices.size() * sizeof(float),
+            static_cast<GLsizeiptr>(vertexData.vertices.size() * sizeof(float)),
             vertexData.vertices.data(),
             GL_STATIC_DRAW
         );
@@ -35,8 +35,19 @@ namespace assignment::graphics
         );
         glEnableVertexAttribArray(0);
 
+        if (!vertexData.elements.empty()) {
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, elementBuffer.getId());
+            glBufferData(
+                GL_ELEMENT_ARRAY_BUFFER,
+                static_cast<GLsizeiptr>(vertexData.elements.size() * sizeof(GLuint)),
+                vertexData.elements.data(),
+                GL_STATIC_DRAW
+            );
+        }
+
         glBindVertexArray(0);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     }
 
     GLuint Mesh::generateVertexArray()

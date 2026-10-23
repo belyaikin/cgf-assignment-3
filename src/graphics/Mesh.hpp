@@ -19,7 +19,7 @@ namespace assignment::graphics
 
         struct VertexData {
             std::vector<GLfloat> vertices;
-            std::vector<GLfloat> elements;
+            std::vector<GLuint> elements;
         };
         VertexData vertexData;
 

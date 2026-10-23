@@ -30,10 +30,16 @@ namespace assignment::graphics
             const GLint projLoc = glGetUniformLocation(mesh.getShaderProgram().getId(), "proj");
             glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 
-            glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(mesh.getVertexData().vertices.size() / 3));
+            if (!mesh.getVertexData().elements.empty()) {
+                glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mesh.getElementBuffer().getId());
+                glDrawElements(GL_TRIANGLES, static_cast<GLsizei>(mesh.getVertexData().elements.size()), GL_UNSIGNED_INT, nullptr);
+            } else {
+                glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(mesh.getVertexData().vertices.size() / 3));
+            }
 
             glBindVertexArray(0);
             glBindBuffer(GL_ARRAY_BUFFER, 0);
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
         }
     }
 }
