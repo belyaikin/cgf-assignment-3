@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "glad/gl.h"
 
 #include "Application.hpp"
@@ -35,12 +37,14 @@ static void setupObjects(Application& application) {
     defaultVertexShader.destroy();
     defaultFragmentShader.destroy();
 
-    const auto cube = graphics::Mesh{
-        graphics::SmfLoader::toVertexData("../res/teapot.smf"),
+    const auto model = graphics::Mesh{
+        graphics::SmfLoader::toVertexData("../res/models/bunny.smf"),
         defaultShadersProgram
     };
 
-    application.addMesh(cube);
+    std::cout << "This model has " << model.getVertexData().vertices.size() << " vertices!\n";
+
+    application.addMesh(model);
 }
 
 int main() {
