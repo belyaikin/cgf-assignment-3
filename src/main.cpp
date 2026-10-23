@@ -1,8 +1,10 @@
 #include "glad/gl.h"
 
 #include "Application.hpp"
-#include "opengl/Renderer.hpp"
-#include "opengl/object/shader/ShaderFactory.hpp"
+#include "glm/vec3.hpp"
+#include "graphics/Camera.hpp"
+#include "graphics/Mesh.hpp"
+#include "graphics/opengl/object/shader/ShaderFactory.hpp"
 
 #define WINDOW_WIDTH 1280
 #define WINDOW_HEIGHT 720
@@ -12,19 +14,19 @@ using namespace assignment;
 
 static void setupObjects(Application& application) {
     auto defaultVertexShader =
-        opengl::object::shader::ShaderFactory::createShader(
+            graphics::opengl::object::shader::ShaderFactory::createShader(
             GL_VERTEX_SHADER,
             "../res/shaders/default.vert"
     );
 
     auto defaultFragmentShader =
-        opengl::object::shader::ShaderFactory::createShader(
+            graphics::opengl::object::shader::ShaderFactory::createShader(
             GL_FRAGMENT_SHADER,
             "../res/shaders/default.frag"
     );
 
     const auto defaultShadersProgram =
-        opengl::object::shader::ShaderFactory::createShaderProgram({
+            graphics::opengl::object::shader::ShaderFactory::createShaderProgram({
             defaultVertexShader, defaultFragmentShader
         }
     );
@@ -32,15 +34,20 @@ static void setupObjects(Application& application) {
     defaultVertexShader.destroy();
     defaultFragmentShader.destroy();
 
-    const auto whiteSquare = opengl::Mesh{
+    const auto whiteSquare = graphics::Mesh{
         {
-            -0.5f, -0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f,
-            -0.5f, 0.5f, 0.0f,
+            .vertices {
+                -0.5f, -0.5f, 0.0f,
+                0.5f, -0.5f, 0.0f,
+                -0.5f, 0.5f, 0.0f,
 
-            -0.5f, 0.5f, 0.0f,
-            0.5f, 0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f,
+                -0.5f, 0.5f, 0.0f,
+                0.5f, 0.5f, 0.0f,
+                0.5f, -0.5f, 0.0f,
+            },
+            .elements = {
+
+            }
         },
         defaultShadersProgram
     };
@@ -55,7 +62,7 @@ int main() {
             .height = WINDOW_HEIGHT,
             .title = WINDOW_TITLE
         },
-        opengl::Camera{
+        graphics::Camera{
             glm::vec3(0.f, 0.f, -4.f)
         }
     };

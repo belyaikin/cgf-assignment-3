@@ -7,7 +7,7 @@
 #include <glm/mat4x4.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-namespace assignment::opengl
+namespace assignment::graphics
 {
     void Renderer::addMesh(const Mesh &mesh) {
         this->meshes.push_back(mesh);
@@ -30,7 +30,7 @@ namespace assignment::opengl
             const GLint projLoc = glGetUniformLocation(mesh.getShaderProgram().getId(), "proj");
             glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
 
-            glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(mesh.getVertexData().size() / 3));
+            glDrawArrays(GL_TRIANGLES, 0, static_cast<GLsizei>(mesh.getVertexData().vertices.size() / 3));
 
             glBindVertexArray(0);
             glBindBuffer(GL_ARRAY_BUFFER, 0);

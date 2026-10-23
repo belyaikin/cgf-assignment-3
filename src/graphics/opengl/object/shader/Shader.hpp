@@ -8,7 +8,7 @@
 #include "../Object.hpp"
 #include "glad/gl.h"
 
-namespace assignment::opengl::object::shader
+namespace assignment::graphics::opengl::object::shader
 {
     class Shader : public Object
     {

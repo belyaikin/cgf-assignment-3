@@ -2,17 +2,17 @@
 // Created by Dmitriy on 22.10.26.
 //
 
-#include "Camera.hpp"
-
 #define GLFW_INCLUDE_NONE
 #define GLM_ENABLE_EXPERIMENTAL
+
+#include "Camera.hpp"
 
 #include "GLFW/glfw3.h"
 #include <glm/gtx/rotate_vector.hpp>
 #include "glm/ext/quaternion_geometric.hpp"
 #include "glm/gtx/vector_angle.hpp"
 
-namespace assignment::opengl
+namespace assignment::graphics
 {
     Camera::CameraMatrix Camera::getMatrix() const {
         auto matrix = CameraMatrix{.view = glm::mat4x4(1.0f), .projection = glm::mat4x4(1.0f)};

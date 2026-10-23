@@ -4,11 +4,11 @@
 
 #include "Application.hpp"
 
-#include "opengl/window/WindowUtilities.hpp"
+#include "graphics/window/WindowUtilities.hpp"
 
 namespace assignment
 {
-    Application::Application(const WindowProperties &windowProperties, const opengl::Camera &camera)
+    Application::Application(const WindowProperties &windowProperties, const graphics::Camera &camera)
         : renderer(camera)
     {
         if (!glfwInit()) return;
@@ -22,7 +22,7 @@ namespace assignment
 
         glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);
 
-        window = opengl::window::WindowUtilities::createWindow(
+        window = graphics::window::WindowUtilities::createWindow(
             windowProperties.width,
             windowProperties.height,
             windowProperties.title.c_str()
@@ -37,7 +37,7 @@ namespace assignment
         std::cout << "[Application]: Initialized application\n";
     }
 
-    void Application::addMesh(const opengl::Mesh &mesh) { renderer.addMesh(mesh); }
+    void Application::addMesh(const graphics::Mesh &mesh) { renderer.addMesh(mesh); }
 
     void Application::run()
     {

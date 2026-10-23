@@ -9,7 +9,7 @@
 #include "ShaderProgram.hpp"
 #include "glad/gl.h"
 
-namespace assignment::opengl::object::shader
+namespace assignment::graphics::opengl::object::shader
 {
     class ShaderFactory
     {

@@ -11,7 +11,7 @@
 
 struct GLFWwindow;
 
-namespace assignment::opengl {
+namespace assignment::graphics {
     class Camera final {
         bool firstClick = true;
 

@@ -4,7 +4,7 @@
 
 #include "ShaderProgram.hpp"
 
-namespace assignment::opengl::object::shader {
+namespace assignment::graphics::opengl::object::shader {
     void ShaderProgram::setBool(const std::string &name, const bool value) {
         const GLuint uniformId = glGetUniformLocation(this->id, name.c_str());
         glUniform1i(uniformId, value);

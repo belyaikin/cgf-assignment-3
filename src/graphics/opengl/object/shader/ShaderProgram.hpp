@@ -7,7 +7,7 @@
 
 #include "../Object.hpp"
 
-namespace assignment::opengl::object::shader
+namespace assignment::graphics::opengl::object::shader
 {
     class ShaderProgram : public Object
     {

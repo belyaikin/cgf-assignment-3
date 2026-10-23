@@ -33,27 +33,29 @@ include_directories("deps/glad/include" "deps/stb")
 add_executable(${PROJECT_NAME}
         deps/glad/src/gl.c
         src/main.cpp
-        src/opengl/object/shader/ShaderFactory.cpp
-        src/opengl/object/shader/ShaderFactory.hpp
-        src/opengl/object/shader/Shader.hpp
-        src/opengl/object/Object.hpp
-        src/opengl/object/shader/ShaderProgram.hpp
-        src/opengl/window/WindowUtilities.hpp
-        src/opengl/Renderer.cpp
-        src/opengl/Renderer.hpp
-        src/opengl/Mesh.cpp
-        src/opengl/Mesh.hpp
-        src/opengl/object/Buffer.hpp
-        src/opengl/object/VertexArray.hpp
+        src/graphics/opengl/object/shader/ShaderFactory.cpp
+        src/graphics/opengl/object/shader/ShaderFactory.hpp
+        src/graphics/opengl/object/shader/Shader.hpp
+        src/graphics/opengl/object/Object.hpp
+        src/graphics/opengl/object/shader/ShaderProgram.hpp
+        src/graphics/window/WindowUtilities.hpp
+        src/graphics/Renderer.cpp
+        src/graphics/Renderer.hpp
+        src/graphics/Mesh.cpp
+        src/graphics/Mesh.hpp
+        src/graphics/opengl/object/Buffer.hpp
+        src/graphics/opengl/object/VertexArray.hpp
         src/Application.hpp
         src/Application.cpp
-        src/opengl/object/shader/Shader.cpp
-        src/opengl/window/WindowUtilities.cpp
-        src/file/FileUtilities.hpp
-        src/file/FileUtilities.cpp
-        src/opengl/object/shader/ShaderProgram.cpp
-        src/opengl/Camera.hpp
-        src/opengl/Camera.cpp
+        src/graphics/opengl/object/shader/Shader.cpp
+        src/graphics/window/WindowUtilities.cpp
+        src/files/FileUtilities.hpp
+        src/files/FileUtilities.cpp
+        src/graphics/opengl/object/shader/ShaderProgram.cpp
+        src/graphics/Camera.hpp
+        src/graphics/Camera.cpp
+        src/graphics/opengl/object/VertexBuffer.hpp
+        src/graphics/opengl/object/ElementBuffer.hpp
 )
 
 target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} glfw glm::glm)

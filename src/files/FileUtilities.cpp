@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string>
 
-namespace assignment::file {
+namespace assignment::files {
     std::string FileUtilities::getFileContents(const char *filename) {
         if (std::ifstream in(filename, std::ios::binary); in) {
             std::cout << "[FileUtilities]: Found file at " << filename << "\n";

@@ -5,7 +5,7 @@
 #pragma once
 #include "Object.hpp"
 
-namespace assignment::opengl::object
+namespace assignment::graphics::opengl::object
 {
     class VertexArray : public Object
     {

@@ -7,7 +7,7 @@
 #include "Camera.hpp"
 #include "Mesh.hpp"
 
-namespace assignment::opengl
+namespace assignment::graphics
 {
     class Renderer
     {

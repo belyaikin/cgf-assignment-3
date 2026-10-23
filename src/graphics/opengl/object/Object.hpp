@@ -5,7 +5,7 @@
 #pragma once
 #include "glad/gl.h"
 
-namespace assignment::opengl::object
+namespace assignment::graphics::opengl::object
 {
     class Object
     {

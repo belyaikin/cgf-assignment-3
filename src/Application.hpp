@@ -8,7 +8,7 @@
 #define GLFW_INCLUDE_NONE
 #include "GLFW/glfw3.h"
 
-#include "opengl/Renderer.hpp"
+#include "graphics/Renderer.hpp"
 
 namespace assignment
 {
@@ -22,16 +22,16 @@ namespace assignment
     {
         GLFWwindow *window;
 
-        opengl::Renderer renderer;
+        graphics::Renderer renderer;
 
         void draw();
 
     public:
-        explicit Application(const WindowProperties &windowProperties, const opengl::Camera &camera);
+        explicit Application(const WindowProperties &windowProperties, const graphics::Camera &camera);
 
-        [[nodiscard]] opengl::Renderer getRenderer() const { return renderer; }
+        [[nodiscard]] graphics::Renderer getRenderer() const { return renderer; }
 
-        void addMesh(const opengl::Mesh &mesh);
+        void addMesh(const graphics::Mesh &mesh);
 
         void run();
     };

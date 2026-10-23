@@ -4,9 +4,11 @@
 
 #include "Mesh.hpp"
 
-namespace assignment::opengl
+#include "opengl/object/shader/ShaderProgram.hpp"
+
+namespace assignment::graphics
 {
-    Mesh::Mesh(const std::vector<GLfloat> &vertexData, const object::shader::ShaderProgram shaderProgram)
+    Mesh::Mesh(const VertexData &vertexData, const opengl::object::shader::ShaderProgram shaderProgram)
         :
         shaderProgram(shaderProgram),
         vertexData(vertexData),
@@ -19,8 +21,8 @@ namespace assignment::opengl
 
         glBufferData(
             GL_ARRAY_BUFFER,
-            vertexData.size() * sizeof(float),
-            vertexData.data(),
+            vertexData.vertices.size() * sizeof(float),
+            vertexData.vertices.data(),
             GL_STATIC_DRAW
         );
 

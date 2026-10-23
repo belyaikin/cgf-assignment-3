@@ -7,7 +7,7 @@
 #include <fstream>
 #include <ios>
 
-namespace assignment::opengl::object::shader
+namespace assignment::graphics::opengl::object::shader
 {
     Shader::Shader(const GLuint id) : Object(id) {}
 

@@ -4,7 +4,7 @@
 
 #include "WindowUtilities.hpp"
 
-namespace assignment::opengl::window
+namespace assignment::graphics::window
 {
     void WindowUtilities::windowSizeChangeCallback(GLFWwindow *window, const int width, const int height)
     {

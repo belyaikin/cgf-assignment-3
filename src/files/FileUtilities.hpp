@@ -5,7 +5,7 @@
 #pragma once
 #include <string>
 
-namespace assignment::file {
+namespace assignment::files {
     class FileUtilities final
     {
     public:
