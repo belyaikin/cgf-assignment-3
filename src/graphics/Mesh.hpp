@@ -13,14 +13,15 @@
 
 namespace assignment::graphics
 {
+    struct VertexData {
+        std::vector<GLfloat> vertices;
+        std::vector<GLuint> elements;
+    };
+
     class Mesh final
     {
         const opengl::object::shader::ShaderProgram shaderProgram;
 
-        struct VertexData {
-            std::vector<GLfloat> vertices;
-            std::vector<GLuint> elements;
-        };
         VertexData vertexData;
 
         const opengl::object::VertexBuffer vertexBuffer;

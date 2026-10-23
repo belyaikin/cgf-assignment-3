@@ -55,6 +55,8 @@ add_executable(${PROJECT_NAME}
         src/graphics/Camera.hpp
         src/graphics/Camera.cpp
         src/graphics/opengl/object/ElementBuffer.hpp
+        src/graphics/SmfLoader.hpp
+        src/graphics/SmfLoader.cpp
 )
 
 target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} glfw glm::glm)
