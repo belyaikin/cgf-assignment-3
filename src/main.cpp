@@ -3,7 +3,6 @@
 #include "glad/gl.h"
 
 #include "Application.hpp"
-#include "glm/vec3.hpp"
 #include "graphics/Camera.hpp"
 #include "graphics/Mesh.hpp"
 #include "graphics/SmfLoader.hpp"
@@ -27,10 +26,20 @@ static void setupObjects(Application& application) {
             GL_FRAGMENT_SHADER,
             "../res/shaders/default.frag"
     );
+    auto lightFragmentShader =
+            graphics::opengl::object::shader::ShaderFactory::createShader(
+            GL_FRAGMENT_SHADER,
+            "../res/shaders/light.frag"
+    );
 
     const auto defaultShadersProgram =
             graphics::opengl::object::shader::ShaderFactory::createShaderProgram({
             defaultVertexShader, defaultFragmentShader
+        }
+    );
+    const auto lightShadersProgram =
+            graphics::opengl::object::shader::ShaderFactory::createShaderProgram({
+            defaultVertexShader, lightFragmentShader
         }
     );
 
@@ -39,12 +48,20 @@ static void setupObjects(Application& application) {
 
     const auto model = graphics::Mesh{
         graphics::SmfLoader::toVertexData("../res/models/bunny.smf"),
-        defaultShadersProgram
+        defaultShadersProgram,
+        {0, 0, 0}
+    };
+
+    const auto lightSource = graphics::Mesh{
+        graphics::SmfLoader::toVertexData("../res/models/cube.smf"),
+        lightShadersProgram,
+        {-4, 2, -3}
     };
 
     std::cout << "This model has " << model.getVertexData().vertices.size() << " vertices!\n";
 
     application.addMesh(model);
+    application.addMesh(lightSource);
 }
 
 int main() {
