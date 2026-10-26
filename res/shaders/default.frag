@@ -11,7 +11,7 @@ uniform vec3 viewPosition;
 void main()
 {
    vec3 norm = normalize(normal);
-   vec3 lightDir = normalize(lightPosition - currentPosition);
+   vec3 lightDir = -1 * normalize(lightPosition - currentPosition);
 
    float diff = max(dot(norm, lightDir), 0.0);
    vec3 diffuse = diff * vec3(lightColor);
